@@ -1,0 +1,15 @@
+C:\Users\doneg\OneDrive\Documents\source\repos\ProjectEuler\bin\Debug\net6.0\ProjectEuler.exe
+C:\Users\doneg\OneDrive\Documents\source\repos\ProjectEuler\bin\Debug\net6.0\ProjectEuler.deps.json
+C:\Users\doneg\OneDrive\Documents\source\repos\ProjectEuler\bin\Debug\net6.0\ProjectEuler.runtimeconfig.json
+C:\Users\doneg\OneDrive\Documents\source\repos\ProjectEuler\bin\Debug\net6.0\ProjectEuler.dll
+C:\Users\doneg\OneDrive\Documents\source\repos\ProjectEuler\bin\Debug\net6.0\ref\ProjectEuler.dll
+C:\Users\doneg\OneDrive\Documents\source\repos\ProjectEuler\bin\Debug\net6.0\ProjectEuler.pdb
+C:\Users\doneg\OneDrive\Documents\source\repos\ProjectEuler\obj\Debug\net6.0\ProjectEuler.csproj.AssemblyReference.cache
+C:\Users\doneg\OneDrive\Documents\source\repos\ProjectEuler\obj\Debug\net6.0\ProjectEuler.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\doneg\OneDrive\Documents\source\repos\ProjectEuler\obj\Debug\net6.0\ProjectEuler.AssemblyInfoInputs.cache
+C:\Users\doneg\OneDrive\Documents\source\repos\ProjectEuler\obj\Debug\net6.0\ProjectEuler.AssemblyInfo.cs
+C:\Users\doneg\OneDrive\Documents\source\repos\ProjectEuler\obj\Debug\net6.0\ProjectEuler.csproj.CoreCompileInputs.cache
+C:\Users\doneg\OneDrive\Documents\source\repos\ProjectEuler\obj\Debug\net6.0\ProjectEuler.dll
+C:\Users\doneg\OneDrive\Documents\source\repos\ProjectEuler\obj\Debug\net6.0\ref\ProjectEuler.dll
+C:\Users\doneg\OneDrive\Documents\source\repos\ProjectEuler\obj\Debug\net6.0\ProjectEuler.pdb
+C:\Users\doneg\OneDrive\Documents\source\repos\ProjectEuler\obj\Debug\net6.0\ProjectEuler.genruntimeconfig.cache
