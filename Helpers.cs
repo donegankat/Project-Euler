@@ -71,22 +71,31 @@ namespace ProjectEuler
         }
 
         /// <summary>
-        /// Returns whether or not the given number is pandigital (meaning that it contains each of the numbers 1 through
-        /// the max digit exactly once).
+        /// Returns whether or not the given number is pandigital (meaning that it contains each of the numbers
+        /// 1 through 9 exactly once).
         /// </summary>
-        public static bool IsPandigital(int number, int maxPandigit = 9)
+        public static bool IsPandigital(int number)
         {
-            return IsPandigital((long)number, maxPandigit);
+            return IsPandigital(number, 1, 9);
         }
 
         /// <summary>
-        /// Returns whether or not the given number is pandigital (meaning that it contains each of the numbers 1 through
-        /// the max digit exactly once).
+        /// Returns whether or not the given number is pandigital (meaning that it contains each of the numbers
+        /// 1 through the max digit exactly once).
         /// </summary>
-        public static bool IsPandigital(long number, int maxPandigit = 9)
+        public static bool IsPandigital(int number, int maxPandigit = 9)
         {
-            var charsToLookFor = new List<char> { '1', '2', '3', '4', '5', '6', '7', '8', '9' };
-            charsToLookFor = charsToLookFor.Take(maxPandigit).ToList();
+            return IsPandigital(number, 1, maxPandigit);
+        }
+
+        /// <summary>
+        /// Returns whether or not the given number is pandigital (meaning that it contains each of the numbers
+        /// from the min digit through the max digit exactly once).
+        /// </summary>
+        public static bool IsPandigital(int number, int minPandigit, int maxPandigit)
+        {
+            var charsToLookFor = new List<char> { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+            charsToLookFor = charsToLookFor.Skip(minPandigit).Take(maxPandigit).ToList();
 
             var strNumber = number.ToString();
             
@@ -103,5 +112,26 @@ namespace ProjectEuler
             
             return charsToLookFor.Count == 0;
         }
+
+        /// <summary>
+		/// Returns all permutations for the given string.
+		/// Adapted from: https://www.iditect.com/guide/csharp/csharp_howto_list_all_permutations_of_a_string.html
+		/// </string>
+		public static List<string> GetWordPermutations(string word, string prefix = "")
+		{
+			if (string.IsNullOrWhiteSpace(word))
+				return new List<string>() { prefix };
+			
+			var result = new List<string>();
+			
+			// Each character need to be permutated.
+			for (int i = 0; i < word.Length; i++)
+			{
+				// Remove current char from original word, append it to prefix, then permute recursively.
+				result.AddRange(GetWordPermutations(word.Remove(i, 1), prefix + word[i]));
+			}
+
+			return result;
+		}
     }
 }

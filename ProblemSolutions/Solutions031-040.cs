@@ -169,8 +169,8 @@ namespace ProjectEuler.ProblemSolutions
 					break;
 			}
 			
-			Console.WriteLine("Truncatable Primes: " + string.Join(", ", truncatablePrimes));
-			Console.WriteLine("Sum of Truncatable Primes: " + truncatablePrimes.Sum());
+			Console.WriteLine($"Truncatable Primes: {string.Join(", ", truncatablePrimes)}");
+			Console.WriteLine($"Sum of Truncatable Primes: {truncatablePrimes.Sum()}");
 		}
 		
         /// <summary>
@@ -192,8 +192,8 @@ namespace ProjectEuler.ProblemSolutions
 				}
 			}
 			
-			Console.WriteLine("Palindromic Numbers: " + string.Join(", ", palindromicBinaryNumbers));
-			Console.WriteLine("Sum of Palindromic Numbers: " + palindromicBinaryNumbers.Sum());
+			Console.WriteLine($"Palindromic Numbers: {string.Join(", ", palindromicBinaryNumbers)}");
+			Console.WriteLine($"Sum of Palindromic Numbers: {palindromicBinaryNumbers.Sum()}");
 		}
 		
         /// <summary>
@@ -238,9 +238,9 @@ namespace ProjectEuler.ProblemSolutions
 				}
 			}
 			
-			//Console.WriteLine("Primes Below Limit: " + string.Join(", ", primes));
-			Console.WriteLine("Circular Primes Below Limit: " + string.Join(", ", circularPrimes));
-			Console.WriteLine("Count of Circular Primes Below Limit: " + circularPrimes.Count());
+			//Console.WriteLine($"Primes Below Limit: {string.Join(", ", primes)}");
+			Console.WriteLine($"Circular Primes Below Limit: {string.Join(", ", circularPrimes)}");
+			Console.WriteLine($"Count of Circular Primes Below Limit: {circularPrimes.Count()}");
 		}
 		
         /// <summary>
@@ -280,8 +280,8 @@ namespace ProjectEuler.ProblemSolutions
 					numbersSummableByTheFactorialsOfTheirDigits.Add(i);
 			}
 			
-			Console.WriteLine("Numbers Summable by the Factorials of Their Digits: " + string.Join(", ", numbersSummableByTheFactorialsOfTheirDigits));
-			Console.WriteLine("Sum: " + numbersSummableByTheFactorialsOfTheirDigits.Sum());
+			Console.WriteLine($"Numbers Summable by the Factorials of Their Digits: {string.Join(", ", numbersSummableByTheFactorialsOfTheirDigits)}");
+			Console.WriteLine($"Sum: {numbersSummableByTheFactorialsOfTheirDigits.Sum()}");
 		}
 
         /// <summary>
@@ -338,12 +338,12 @@ namespace ProjectEuler.ProblemSolutions
 			}
 			
 			Console.WriteLine();
-			Console.WriteLine("Cancelled Digit Fractions:\n" + string.Join("\n", digitCancellingFractions.Select(dcf => dcf.Item1 + " / " + dcf.Item2)));
+			Console.WriteLine($"Cancelled Digit Fractions:\n{string.Join("\n", digitCancellingFractions.Select(dcf => $"{dcf.Item1} / {dcf.Item2}"))}");
 			Console.WriteLine();
 			
 			double productOfProducts = digitCancellingFractions.Aggregate((double)1, (total, next) => total *= (next.Item1 / next.Item2));
-			Console.WriteLine("Product of Products: " + productOfProducts);
-			Console.WriteLine("Lowest common term fraction: 1 / " + 1 / productOfProducts);
+			Console.WriteLine($"Product of Products: {productOfProducts}");
+			Console.WriteLine($"Lowest common term fraction: 1 / {1 / productOfProducts}");
 		}
 		
 		private class PandigitalProduct
@@ -413,13 +413,14 @@ namespace ProjectEuler.ProblemSolutions
 						pandigitalProducts.Add(new PandigitalProduct(i, j, product));
 					}
 					else if (product.ToString().Length + j.ToString().Length + i.ToString().Length > 9)
-						// If we're already longer than we possibly can be to be pandigital, break this loop and continue to the next iteration of i.
+						// If we're already longer than we possibly can be to be pandigital, break this
+						// loop and continue to the next iteration of i.
 						break;
 				}
 			}
 			
-			Console.WriteLine("Pandigital Products:\n" + string.Join("\n", pandigitalProducts.Select(prod => prod.Multiplicand + " x " + prod.Multiplier + " = " + prod.Product)));
-			Console.WriteLine("Sum of Pandigital Products: " + pandigitalProducts.Sum(prod => prod.Product));
+			Console.WriteLine($"Pandigital Products:\n{string.Join("\n", pandigitalProducts.Select(prod => $"{prod.Multiplicand} x {prod.Multiplier} = {prod.Product}"))}");
+			Console.WriteLine($"Sum of Pandigital Products: {pandigitalProducts.Sum(prod => prod.Product)}");
 		}
 		
         /// <summary>
@@ -436,7 +437,7 @@ namespace ProjectEuler.ProblemSolutions
 			
 			numberOfWaysToMakeTwoPounds += AddCoin(coins, twoPounds, coins.Count() - 1, new List<int>());
 			
-			Console.WriteLine("Number of Ways to Make 2 Pounds: " + numberOfWaysToMakeTwoPounds);
+			Console.WriteLine($"Number of Ways to Make 2 Pounds: {numberOfWaysToMakeTwoPounds}");
 		}
 		
 		private static int AddCoin(List<int> coins, int currentSum, int coinIndex, List<int> coinsAddedSoFar)

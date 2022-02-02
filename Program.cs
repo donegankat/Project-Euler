@@ -55,7 +55,9 @@ namespace ProjectEuler
             //Solutions.RunChampernownesConstantDecimalConcatenationProblem();
 
             // Problems 41-50
-            Solutions.RunLargestPandigitalPrimeProblem();
+            //Solutions.RunLargestPandigitalPrimeProblem();
+            //Solutions.RunCodedTriangleNumbersProblem();
+            Solutions.RunSubstringDivisibilityProblem();
             //Solutions.RunPrimeNumberFamilyProblem();
         }
     }
