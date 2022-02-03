@@ -6,6 +6,10 @@ namespace ProjectEuler
     {
         public static void Main(string[] args)
         {
+            // TODO: Someday when I'm less lazy I should make the problem selection/execution more
+            // elegant. For now, though, since I basically just do these while I watch TV, the lazy,
+            // hardcoded, commented-out way is sufficient.
+
             // Problems 1-10
             //Solutions.RunMultiplesOf3and5Problem();
             //Solutions.RunEvenFibonacciNumbersProblem();
@@ -57,8 +61,22 @@ namespace ProjectEuler
             // Problems 41-50
             //Solutions.RunLargestPandigitalPrimeProblem();
             //Solutions.RunCodedTriangleNumbersProblem();
-            Solutions.RunSubstringDivisibilityProblem();
-            //Solutions.RunPrimeNumberFamilyProblem();
+            //Solutions.RunSubstringDivisibilityProblem();
+            //Solutions.RunPentagonalNumbersProblem();
+            //Solutions.RunTriangularPentagonalHexagonalProblem();
+            //Solutions.RunGoldbachOddCompositeNonPrimeSquareProblem();
+            //Solutions.RunConsecutiveDistinctPrimeFactorsProblem();
+            //Solutions.RunSelfPowersProblem();
+            //Solutions.RunPrimePermutationsProblem();
+            //Solutions.RunConsecutivePrimeSumsProblem();
+
+            // Problems 51-60
+            Solutions.RunPrimeNumberFamilyProblem();
+
+            // Problems 61-70
+
+            // Problems 71-80
+
         }
     }
 }

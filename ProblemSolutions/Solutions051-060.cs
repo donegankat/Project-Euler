@@ -9,9 +9,12 @@ namespace ProjectEuler.ProblemSolutions
     public static partial class Solutions
     {
         /// <summary>
-        /// Problem 
-        /// https://projecteuler.net/problem=
+        /// Problem 51
+        /// https://projecteuler.net/problem=51
         /// </summary>
-        
+        public static void RunPrimeNumberFamilyProblem()
+        {
+            
+        }
     }
 }
