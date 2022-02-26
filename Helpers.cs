@@ -24,7 +24,7 @@ namespace ProjectEuler
 
             return divisors;
         }
-        
+
         /// <summary>
         /// Returns whether or not the given number is prime.
         /// </summary>
@@ -47,9 +47,9 @@ namespace ProjectEuler
                     return false;
                 if (number % (i + 2) == 0)
                     return false;
-                i+= 6;
+                i += 6;
             }
-            
+
             return true;
         }
 
@@ -98,7 +98,7 @@ namespace ProjectEuler
             charsToLookFor = charsToLookFor.Skip(minPandigit).Take(maxPandigit).ToList();
 
             var strNumber = number.ToString();
-            
+
             if (strNumber.Length != charsToLookFor.Count())
                 return false;
 
@@ -106,10 +106,10 @@ namespace ProjectEuler
             {
                 if (!charsToLookFor.Contains(num))
                     return false;
-                
+
                 charsToLookFor.Remove(num);
             }
-            
+
             return charsToLookFor.Count == 0;
         }
 
@@ -118,20 +118,36 @@ namespace ProjectEuler
 		/// Adapted from: https://www.iditect.com/guide/csharp/csharp_howto_list_all_permutations_of_a_string.html
 		/// </string>
 		public static List<string> GetWordPermutations(string word, string prefix = "")
-		{
-			if (string.IsNullOrWhiteSpace(word))
-				return new List<string>() { prefix };
-			
-			var result = new List<string>();
-			
-			// Each character need to be permutated.
-			for (int i = 0; i < word.Length; i++)
-			{
-				// Remove current char from original word, append it to prefix, then permute recursively.
-				result.AddRange(GetWordPermutations(word.Remove(i, 1), prefix + word[i]));
-			}
+        {
+            if (string.IsNullOrWhiteSpace(word))
+                return new List<string>() { prefix };
 
-			return result;
-		}
+            var result = new List<string>();
+
+            // Each character need to be permutated.
+            for (int i = 0; i < word.Length; i++)
+            {
+                // Remove current char from original word, append it to prefix, then permute recursively.
+                result.AddRange(GetWordPermutations(word.Remove(i, 1), prefix + word[i]));
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Returns the factorial of the given number.
+        /// </summary>
+        public static BigInteger GetFactorial(long n)
+        {
+            BigInteger result = 1;
+
+            while (n > 1)
+            {
+                result *= n;
+                n--;
+            }
+
+            return result;
+        }
     }
 }

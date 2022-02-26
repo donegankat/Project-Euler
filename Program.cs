@@ -71,7 +71,16 @@ namespace ProjectEuler
             //Solutions.RunConsecutivePrimeSumsProblem();
 
             // Problems 51-60
-            Solutions.RunPrimeNumberFamilyProblem();
+            //Solutions.RunPrimeNumberFamilyProblem();
+            //Solutions.RunPermutedMultiplesProblem();
+            //Solutions.RunCombinatoricSelectionsProblem();
+            //Solutions.RunPokerHandsProblem();
+            //Solutions.RunLychrelNumbersProblem();
+            //Solutions.RunPowerfulDigitSumProblem();
+            //Solutions.RunSquareRootConvergentsProblem();
+            //Solutions.RunSpiralPrimesProblem();
+            //Solutions.RunXorDecryptionProblem();
+            Solutions.RunConcatenatedPrimePairSetsProblem();
 
             // Problems 61-70
 

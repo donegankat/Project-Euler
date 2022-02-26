@@ -96,12 +96,13 @@ namespace ProjectEuler.ProblemSolutions
 			// Helper used for initial conceptualizing of the problem.
 			//BuildAndPrintSpiral(10000);
 			
-			// This problem can be solved mathematically. The top right corner of each layer of the spiral is the length of the spiral layer squared,
-			// so a 3x3 spiral's top right number is 9, a 5x5's top right corner is 25, and so on.
-			// The top left corner is the top right corner - (the length of the spiral layer - 1), so a 3x3 spiral's top left corner is 7, a 5x5's top
-			// left corner is 21, and so on.
-			// The bottom left corner follows the same pattern, where it's the top left corner - (the height of the spiral layer - 1), so 3x3 = 5, 5x5
-			// = 17, and so on.
+			// This problem can be solved mathematically. The top right corner of each layer of the spiral
+			// is the length of the spiral layer squared, so a 3x3 spiral's top right number is 9, a 5x5's
+			// top right corner is 25, and so on.
+			// The top left corner is the top right corner - (the length of the spiral layer - 1), so a 3x3
+			// spiral's top left corner is 7, a 5x5's top left corner is 21, and so on.
+			// The bottom left corner follows the same pattern, where it's the top left corner - (the height
+			// of the spiral layer - 1), so 3x3 = 5, 5x5 = 17, and so on.
 			// Same goes for the bottom right corner.
 			long totalDiagonalSum = 0;
 			var maxSpiralLength = 1001;
@@ -132,7 +133,10 @@ namespace ProjectEuler.ProblemSolutions
 			var spiral = new Dictionary<Coordinate, int>();
 			var x = 0;
 			var y = 0;
-			var currentDirection = SpiralDirection.Up; // Start the loop thinking that we're heading up, which will immediately tell us that we can switch to going right.
+
+			// Start the loop thinking that we're heading up, which will immediately tell us that we can
+			// switch to going right.
+			var currentDirection = SpiralDirection.Up;
 			
 			for (var i = 1; i <= maxSpiralNumber; i++)
 			{
@@ -140,7 +144,8 @@ namespace ProjectEuler.ProblemSolutions
 				
 				if (currentDirection == SpiralDirection.Up)
 				{
-					// When we're going up, always look for the first opportunity to go right and take it whenever possible.
+					// When we're going up, always look for the first opportunity to go right and take it
+					// whenever possible.
 					if (!spiral.ContainsKey(new Coordinate(x + 1, y)))
 					{
 						//Console.WriteLine(i + ": UP -> RIGHT");
@@ -152,7 +157,8 @@ namespace ProjectEuler.ProblemSolutions
 				}
 				else if (currentDirection == SpiralDirection.Right)
 				{
-					// When we're going right, always look for the first opportunity to go down and take it whenever possible.
+					// When we're going right, always look for the first opportunity to go down and take it
+					// whenever possible.
 					if (!spiral.ContainsKey(new Coordinate(x, y - 1)))
 					{
 						//Console.WriteLine(i + ": RIGHT -> DOWN");
@@ -164,7 +170,8 @@ namespace ProjectEuler.ProblemSolutions
 				}
 				else if (currentDirection == SpiralDirection.Down)
 				{
-					// When we're going down, always look for the first opportunity to go left and take it whenever possible.
+					// When we're going down, always look for the first opportunity to go left and take it
+					// whenever possible.
 					if (!spiral.ContainsKey(new Coordinate(x - 1, y)))
 					{
 						//Console.WriteLine(i + ": DOWN -> LEFT");
@@ -176,7 +183,8 @@ namespace ProjectEuler.ProblemSolutions
 				}
 				else if (currentDirection == SpiralDirection.Left)
 				{
-					// When we're going left, always look for the first opportunity to go up and take it whenever possible.
+					// When we're going left, always look for the first opportunity to go up and take it
+					// whenever possible.
 					if (!spiral.ContainsKey(new Coordinate(x, y + 1)))
 					{
 						//Console.WriteLine(i + ": LEFT -> UP");
@@ -202,8 +210,8 @@ namespace ProjectEuler.ProblemSolutions
 				
 				var coordToPrint = spiral[coord].ToString();
 				
-				// If the length of the current spiral number is less than the highest number of characters in the spiral, pad
-				// it with extra spaces so that all of the numbers line up when printed.
+				// If the length of the current spiral number is less than the highest number of characters in
+				// the spiral, pad it with extra spaces so that all of the numbers line up when printed.
 				for (var numSpaces = coordToPrint.Length; numSpaces < maxCoordCharacters; numSpaces++)
 					coordToPrint = coordToPrint + " ";
 				
