@@ -149,5 +149,43 @@ namespace ProjectEuler
 
             return result;
         }
+
+
+
+        // Possibly not needed?
+        public static IEnumerable<IEnumerable<T>> PickPermutationsFromList<T>(List<T> list, int numberOfElementsToTake)
+        {
+            return from m in Enumerable.Range(0, numberOfElementsToTake << list.Count)
+                   select
+                   from i in Enumerable.Range(0, numberOfElementsToTake)
+                   where (m & (1 << i)) != 0
+                   select list[i];
+        }
+
+        public static IEnumerable<IEnumerable<T>> GetPowerSet<T>(IEnumerable<T> input)
+        {
+            var seed = new List<IEnumerable<T>>() { Enumerable.Empty<T>() } as IEnumerable<IEnumerable<T>>;
+
+            return input.Aggregate(seed, (a, b) => a.Concat(a.Select(x => x.Concat(new List<T>() { b }))));
+        }
+
+        public static IEnumerable<T[]> GetListElementCombinations<T>(List<T> input, int numberOfElementsToTake)
+        {
+            return GetListElementCombinations(input, new T[numberOfElementsToTake], 0, 0);
+        }
+
+        private static IEnumerable<T[]> GetListElementCombinations<T>(List<T> input, T[] buffer, int numberOfElementsAlreadyTaken, int startIndexToTakeFrom)
+        {
+            for (int i = startIndexToTakeFrom; i < input.Count(); i++)
+            {
+                buffer[numberOfElementsAlreadyTaken] = input[i];
+
+                if (numberOfElementsAlreadyTaken == buffer.Length - 1)
+                    yield return buffer;
+                else
+                    foreach (T[] child in GetListElementCombinations(input, buffer, numberOfElementsAlreadyTaken + 1, i + 1))
+                        yield return child;
+            }
+        }
     }
 }

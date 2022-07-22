@@ -26,13 +26,13 @@ namespace ProjectEuler.ProblemSolutions
                     if (Helpers.IsPrime(long.Parse($"{prime}{primeToConcatenate}")) && Helpers.IsPrime(long.Parse($"{primeToConcatenate}{prime}")))
                     {
                         if (!primesThatConcatenateToOtherPrimes.ContainsKey(prime))
-                            primesThatConcatenateToOtherPrimes.Add(prime, new HashSet<long>{ prime, primeToConcatenate });
+                            primesThatConcatenateToOtherPrimes.Add(prime, new HashSet<long> { prime, primeToConcatenate });
                         else
                             primesThatConcatenateToOtherPrimes[prime].Add(primeToConcatenate);
                     }
                 }
             }
-            
+
             var targetChainLength = 5;
 
             foreach (var prime in primesThatConcatenateToOtherPrimes)
@@ -121,10 +121,10 @@ namespace ProjectEuler.ProblemSolutions
                         var repeatedPasswordKey = Enumerable
                               .Range(0, allEncryptedCharacters.Length)
                               .Select(x => password[x % password.Length]);
-                        
+
                         var attemptedDecryption = allEncryptedCharacters.Zip(repeatedPasswordKey, (encrypted, keyChar) => (keyChar ^ encrypted)).ToArray();
                         var isDecryptionAttemptValid = attemptedDecryption.All(decrypted => (decrypted >= 32 && decrypted <= 93) || (decrypted >= 97 && decrypted <= 122));
-                        
+
                         if (isDecryptionAttemptValid)
                         {
                             Console.WriteLine($"Successful Password: {(char)i}{(char)j}{(char)k}");
@@ -144,24 +144,24 @@ namespace ProjectEuler.ProblemSolutions
         public static void RunSpiralPrimesProblem()
         {
             // This problem can be solved mathematically. The bottom right corner of each layer of the spiral
-			// is the length of the spiral layer squared, so a 3x3 spiral's bottom right number is 9, a 5x5's
-			// bottom right corner is 25, and so on.
-			// The bottom left corner is the bottom right corner - (the length of the spiral layer - 1), so a 3x3
-			// spiral's bottom left corner is 7, a 5x5's bottom left corner is 21, and so on.
-			// The top left corner follows the same pattern, where it's the bottom left corner - (the height
-			// of the spiral layer - 1), so 3x3 = 5, 5x5 = 17, and so on.
-			// Same goes for the bottom right corner.
-			var totalDiagonalPrimes = 0;
-			var totalDiagonalNumbers = 1; // Count the 1 in the center, but it's not considered prime.
-			var spiralSize = 1;
+            // is the length of the spiral layer squared, so a 3x3 spiral's bottom right number is 9, a 5x5's
+            // bottom right corner is 25, and so on.
+            // The bottom left corner is the bottom right corner - (the length of the spiral layer - 1), so a 3x3
+            // spiral's bottom left corner is 7, a 5x5's bottom left corner is 21, and so on.
+            // The top left corner follows the same pattern, where it's the bottom left corner - (the height
+            // of the spiral layer - 1), so 3x3 = 5, 5x5 = 17, and so on.
+            // Same goes for the bottom right corner.
+            var totalDiagonalPrimes = 0;
+            var totalDiagonalNumbers = 1; // Count the 1 in the center, but it's not considered prime.
+            var spiralSize = 1;
             do
             {
                 spiralSize += 2; // Increment by 2 because we're adding both a width and a height.
 
                 long bottomRightCorner = (long)Math.Pow(spiralSize, 2);
-				long bottomLeftCorner = bottomRightCorner - spiralSize + 1;
-				long topLeftCorner = bottomLeftCorner - spiralSize + 1;
-				long topRightCorner = topLeftCorner - spiralSize + 1;
+                long bottomLeftCorner = bottomRightCorner - spiralSize + 1;
+                long topLeftCorner = bottomLeftCorner - spiralSize + 1;
+                long topRightCorner = topLeftCorner - spiralSize + 1;
 
                 if (Helpers.IsPrime(bottomRightCorner)) totalDiagonalPrimes++;
                 if (Helpers.IsPrime(bottomLeftCorner)) totalDiagonalPrimes++;
@@ -171,7 +171,7 @@ namespace ProjectEuler.ProblemSolutions
                 totalDiagonalNumbers += 4;
             }
             while (((double)totalDiagonalPrimes / (double)totalDiagonalNumbers) * 100 >= 10);
-			
+
             Console.WriteLine($"Spiral Side Length when Diagonal Prime Ratio Falls Below 10%: {spiralSize}");
         }
 
@@ -273,7 +273,7 @@ namespace ProjectEuler.ProblemSolutions
             {
                 if (int.TryParse(rank.ToString(), out int intRank))
                     return intRank;
-                
+
                 switch (rank)
                 {
                     case 'T':
@@ -432,7 +432,7 @@ namespace ProjectEuler.ProblemSolutions
 
             // All cards are consecutive values.
             Straight,
-            
+
             // All cards of the same suit.
             Flush,
 
@@ -441,10 +441,10 @@ namespace ProjectEuler.ProblemSolutions
 
             // Four cards of the same value.
             FourOfAKind,
-            
+
             // All cards are consecutive values of same suit.
             StraightFlush,
-            
+
             // Ten, Jack, Queen, King, Ace, in same suit.
             RoyalFlush
         }
@@ -561,14 +561,14 @@ namespace ProjectEuler.ProblemSolutions
         public static void RunPrimeNumberFamilyProblem()
         {
             var upperLimit = 1000000;
-            
+
             var primes = Helpers.GetPrimeNumbers(upperLimit);
             var primesToSearch = primes.Where(prime => prime > 10000).ToHashSet();
 
             foreach (var prime in primesToSearch)
             {
                 var primeString = prime.ToString();
-                
+
                 foreach (var primeDigit in primeString.ToCharArray().Distinct())
                 {
                     var primeFamily = new HashSet<long> {
